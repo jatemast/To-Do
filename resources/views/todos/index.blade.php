@@ -11,7 +11,9 @@
         <a href="{{ route('todos.create') }}" class="bg-blue-500 text-white font-bold py-2 px-4 rounded mb-6 inline-block hover:bg-blue-600">
             Add New To-Do
         </a>
-
+        <a href="{{ route('dashboard') }}" class="bg-gray-500 text-white font-bold py-2 px-4 rounded mb-6 inline-block hover:bg-gray-600">
+            Regresar a la página principal
+        </a>
         @if(session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
                 {{ session('success') }}

@@ -4,7 +4,9 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-
+<a href="{{ route('dashboard') }}" class="bg-gray-500 text-white font-bold py-2 px-4 rounded mb-6 inline-block hover:bg-gray-600">
+    Regresar a la página principal
+</a>
 <div class="max-w-lg mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg border border-gray-200">
     <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Create a New To-Do</h1>
 
