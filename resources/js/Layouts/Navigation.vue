@@ -36,7 +36,7 @@
                 Usuarios registrados
             </nav-link>
 
-            <nav-link :href="route('about')" :active="route().current('about')">
+            <nav-link :href="route('todos.index')" :active="route().current('about')">
                 <template #icon>
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                          stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -45,6 +45,17 @@
                     </svg>
                 </template>
                 Tareas
+            </nav-link>
+            
+            <nav-link :href="route('todos.create')" :active="route().current('about')">
+                <template #icon>
+                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                            d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                    </svg>
+                </template>
+                Crear Tarea 
             </nav-link>
 
             <a class="flex items-center mt-4 py-2 px-6 text-gray-100" href="#" @click="showingTwoLevelMenu = !showingTwoLevelMenu">
@@ -65,6 +76,7 @@
                         <li class="px-2 py-1 transition-colors duration-150">
                             <Link class="w-full" :href="route('dashboard')">Menu categorias</Link>
                         </li>
+
                     </ul>
                 </div>
             </transition>

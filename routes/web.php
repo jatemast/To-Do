@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TodoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +23,9 @@ use App\Http\Controllers\EmployeeController;
 Route::get('/', function () {
     return redirect()->route('login');
 });
+
+ 
+
 
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
@@ -38,6 +43,9 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
+
+
+    
     Route::get('/about', fn () => Inertia::render('About'))->name('about');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');
@@ -45,23 +53,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
+ // Rutas para el To_do_
+Route::get('/todos/index', [TodoController::class, 'index'])->name('todos.index')->middleware('auth');
+Route::get('/todos/create', [TodoController::class, 'create'])->name('todos.create')->middleware('auth');
+Route::post('/todos', [TodoController::class, 'store'])->name('todos.store')->middleware('auth');
+Route::get('/todos/{todo}/edit', [TodoController::class, 'edit'])->name('todos.edit')->middleware('auth');
+Route::put('/todos/{todo}', [TodoController::class, 'update'])->name('todos.update')->middleware('auth');
+Route::delete('/todos/{todo}', [TodoController::class, 'destroy'])->name('todos.destroy')->middleware('auth');
 
 });
-
 require __DIR__.'/auth.php';
